@@ -9,37 +9,37 @@ $elementSetMetadata = array(
 $elements = array(
     array(
         'label' => 'Contributor Name',
-        'name' => 'contributorName',
+        'name' => 'Contributor Name',
         'description' => 'Name of the  contributer'
     ),
     
     array(
         'label' => 'Contributor Zip',
-        'name' => 'contributorZip',
+        'name' => 'Contributor Zip',
         'description' => 'Zip code of the  contributer'
     ),
     
     array(
         'label' => 'Contributor Age',
-        'name' => 'contributorAge',
+        'name' => 'Contributor Age',
         'description' => 'Age of the contributer'
     ),
     
     array(
         'label' => 'Contributor Ethnicity',
-        'name' => 'contributorEthnicity',
+        'name' => 'Contributor Ethnicity',
         'description' => 'Ethnicity or race of the contributer'
     ),
      
      array(
         'label' => 'Contributor Gender',
-        'name' => 'contributorGender',
+        'name' => 'Contributor Gender',
         'description' => 'Gender of the contributer'
     ),
     
      array(
         'label' => 'Contributor Twitter Handle',
-        'name' => 'contributorTwitter',
+        'name' => 'Contributor Twitter',
         'description' => 'Twitter Handle of the contributer'
     )
  );
