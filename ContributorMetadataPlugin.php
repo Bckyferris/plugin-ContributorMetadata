@@ -44,6 +44,7 @@ class ContributorMetadataPlugin extends Omeka_Plugin_AbstractPlugin
 */
     public function hookUninstall()
     {
+	  $this->_clearContributionTypeElements($this->_elementSetName);
       $this->_deleteElementSet($this->_elementSetName);
     }
     
@@ -69,8 +70,37 @@ class ContributorMetadataPlugin extends Omeka_Plugin_AbstractPlugin
 		return $element;
 	 }
 	 
+	  protected function _clearContributionTypeElements($elementSet)
+	 {
+		 $db = get_db();
+		 $elementTable = $db->getTable('Element');
+		 
+		 $setElements = $elementTable->findBySet('Contributor Information');
+		
+		 $elementIds = array();
+		 foreach($setElements as $setElement)
+		 {
+			 $elementIds[] = $setElement->id;
+			 
+		 }
+		  
+		  $contributionTypeTable = $db->getTable('ContributionTypeElement');
+ 
+  		  foreach($elementIds as $ID)
+		 {
+		 	$deleteElement = $contributionTypeTable->findBy(array('element_id' => $ID));
+			foreach($deleteElement as $delete)
+			{
+				$delete->delete();
+			}
+		 }
+	 }
+	 
 	 protected function _deleteElementSet($elementSet)
 	 {
 		$this->_db->getTable('ElementSet')->findByName($elementSet)->delete();
 	 }
+	 
+	
 }
+
