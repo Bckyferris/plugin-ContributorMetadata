@@ -27,20 +27,21 @@ class ContributorMetadataPlugin extends Omeka_Plugin_AbstractPlugin
             throw new Omeka_Plugin_Installer_Exception('An element set by the name "' . $this->_elementSetName . '" already exists. You must delete that element set to install this plugin.');
         }
 		// *** For BMA: Comment out the the following line
-		//else {insert_element_set($elementSetMetadata, $elements);}
+		else {insert_element_set($elementSetMetadata, $elements);}
 		
-	  //*** For BMA: add the current contributor elements to this element set ***
-	  insert_element_set($elementSetMetadata);
-      $idArray = array(68, 70, 71, 72, 73, 74);
-      foreach($idArray as $elementID)
-	  {
-       $elementBMA = $this->_db->getTable('Element')->find($elementID);
-       $elementBMA->setElementSet("Contributor Information");
-	   $elementBMA->save();
-	  }
-	  $nameId = 70;
-	  $name = $this->_db->getTable('Element')->find($nameId);
-	  $name->name = "Contributor Name";
+//*** For BMA: add the current contributor elements to this element set ***
+//	  insert_element_set($elementSetMetadata);
+//    $idArray = array(68, 70, 71, 72, 73, 74);
+//      foreach($idArray as $elementID)
+//	  {
+//       $elementBMA = $this->_db->getTable('Element')->find($elementID);
+//       $elementBMA->setElementSet("Contributor Information");
+//	     $elementBMA->save();
+//	  }
+//	  $nameId = 70;
+//	  $name = $this->_db->getTable('Element')->find($nameId);
+//	  $name->name = "Contributor Name";
+//	  $name->save();
 	  
         
     }
